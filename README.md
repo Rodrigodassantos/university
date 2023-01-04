@@ -3,11 +3,11 @@
 
 # 🛠️ Abrir e rodar o projeto
 
-**Para inicializar o projeto por favor instale o docker na sua máquina,  o link para ajuda na instalação do docker é esse: 
+Para inicializar o projeto por favor instale o docker na sua máquina,  o link para ajuda na instalação do docker é esse: 
 
 https://docs.docker.com/engine/install/ubuntu/ 
 
-Caso já o tenha instalado rode o comando docker-compose up**
+Caso já o tenha instalado rode o comando docker-compose up
 
 # :hammer: Funcionalidades do projeto
 
@@ -22,7 +22,7 @@ Caso já o tenha instalado rode o comando docker-compose up**
         "state_province": "string",
         "domains": "string",
         "country": "string"
-        
+
 }
 - `GET ALL`: Para retornar todas as universities a rota é GET     /universities  podendo passar o parâmetro de página ?page e filtrando por país ?country
 - `GET ONE`: Para retornar uma university com todas as informações  a rota é GET   /universities/:id
