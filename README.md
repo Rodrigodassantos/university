@@ -15,12 +15,14 @@ Caso já o tenha instalado rode o comando docker-compose up**
 - `POST`: Para criar uma univesity nova a rote é POST   /universities   com o body:
 
 {
+
         "alpha_two_code": "string",
         "name": "string",
         "web_pages": ["string", "string"],
         "state_province": "string",
         "domains": "string",
         "country": "string"
+        
 }
 - `GET ALL`: Para retornar todas as universities a rota é GET     /universities  podendo passar o parâmetro de página ?page e filtrando por país ?country
 - `GET ONE`: Para retornar uma university com todas as informações  a rota é GET   /universities/:id
