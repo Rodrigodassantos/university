@@ -1,6 +1,17 @@
 const universityService = require('../service/serviceUniversity')
 
+
 module.exports = {
+
+    async populateDataBase(req,res){
+        try {
+            const objectCreated = await universityService.populate(req,res)
+            return  res.json(objectCreated)
+        } catch (error) {
+            throw new Error( error.message)
+        }
+       
+    },
 
     async createUniversity(req, res) {
     try {
@@ -28,9 +39,9 @@ module.exports = {
     
     async updateUniversity (req, res)  {
        try {
-        const teste = await  universityService.update(req, res)
+        const updatedUniversities = await  universityService.update(req, res)
     
-        return res.json(teste)
+        return res.json(updatedUniversities)
        } catch (error) {
           throw new Error( error.message)
        }
