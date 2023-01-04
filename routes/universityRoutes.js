@@ -3,6 +3,8 @@ const router = express.Router()
 const universityController = require('../controller/universityController')
 
 
+router.get('/populate', universityController.populateDataBase);
+
 router.get('/universities', universityController.getUniversity);
 
 router.post('/universities', universityController.createUniversity)

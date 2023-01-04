@@ -1,8 +1,36 @@
 
 const universityRepository = require('../repository/universityRepository')
 const universities = require('../model/university-model')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = {
+
+    async populate(req, res){
+
+      const countries = [           
+        "argentina",
+        "brazil",
+        "chile",
+        "colombia",
+        "paraguai",
+        "peru",
+        "suriname",
+        "uruguay",
+        ]
+
+        for( country of countries){
+            const countryFetched = await fetch(`http://universities.hipolabs.com/search?country=${country}`, { redirect: 'manual' });
+            const jsons = await countryFetched.json()
+        
+            for(json of jsons){
+                
+              universityRepository.save(json)
+            }
+
+        }
+
+    return res.status(200).send({ message: 'Database populated'})
+    },
 
     async create(req, res) {
 
@@ -86,10 +114,9 @@ module.exports = {
     
     async deleteOne(req, res){
         
-            const param = req.params.id
-    
-    
-     const deleteOneUniversity = await universityRepository.deleteObject(param, res)
+      const param = req.params.id
+
+      const deleteOneUniversity = await universityRepository.deleteObject(param, res)
 
      return deleteOneUniversity
     

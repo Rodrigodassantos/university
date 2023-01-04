@@ -4,26 +4,25 @@ module.exports = {
     // 100% 
     async save(req, res ) {
     
-        const teste = new universities(req)
+        const objectCreated = new universities(req)
        .save()
        
-       return teste
+       return objectCreated
         
     },
 
     //100 %
     async getAll( options, search, param) {    
       
-     const test = await universities.paginate( search, {offset: options, limit: 20, options: param} )
+     const getObject = await universities.paginate( search, {offset: options, limit: 20, options: param} )
     
-       return test
+       return getObject
     },
     
     // 100%  
     async getOne(req, res) {
         const getOneData = universities.findOne({ _id: req.params.id })
-        return getOneData
-        
+        return getOneData       
     },
     
     // 100%
